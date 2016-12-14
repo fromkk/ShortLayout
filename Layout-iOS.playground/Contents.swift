@@ -16,7 +16,7 @@ class ViewController: UIViewController {
             redView.layout.left.equal(to: self.view.layout.left).constant(20.0),
             redView.layout.top.equal(to: self.view.layout.top).constant(20.0),
             redView.layout.right.equal(to: self.view.layout.right).constant(-20.0),
-            redView.layout.height.equal(to: 120.0),
+            redView.layout.height.equal(to: nil).constant(120.0),
         ])
 
         let label: UILabel = UILabel(frame: CGRect.zero)
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             blueView.layout.left.equal(to: self.view.layout.left).constant(20.0),
             blueView.layout.top.equal(to: label.layout.bottom).constant(20.0),
             blueView.layout.right.equal(to: self.view.layout.right).constant(-20.0),
-            blueView.layout.height.equal(to: 120.0)
+            blueView.layout.height.equal(to: nil).constant(120.0)
         ])
 
         let yellowView: UIView = UIView(frame: CGRect.zero)
@@ -50,15 +50,15 @@ class ViewController: UIViewController {
         ShortLayout.activate([
             yellowView.layout.top.equal(to: blueView.layout.bottom).constant(10.0),
             yellowView.layout.left.equal(to: self.view.layout.left).constant(10.0),
-            yellowView.layout.height.equal(to: 120.0),
+            yellowView.layout.height.equal(to: nil).constant(120.0),
         ])
 
         ShortLayout.activate([
-            greenView.layout.top.equal(to: yellowView.layout.top),
+            greenView.layout.top.equal(to: yellowView.layout.top).constant(0.0),
             greenView.layout.left.equal(to: yellowView.layout.right).constant(10.0),
-            greenView.layout.width.equal(to: yellowView.layout.width),
+            greenView.layout.width.equal(to: yellowView.layout.width).constant(0.0),
             greenView.layout.right.equal(to: self.view.layout.right).constant(-10.0),
-            greenView.layout.height.equal(to: yellowView.layout.height)
+            greenView.layout.height.equal(to: yellowView.layout.height).constant(0.0)
         ])
     }
 }
