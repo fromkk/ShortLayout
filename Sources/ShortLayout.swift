@@ -35,7 +35,7 @@ class LayoutBase: LayoutBasic {
     var relatition: NSLayoutRelation = NSLayoutRelation.equal
     var constant: CGFloat = 0.0
     var multiplier: CGFloat = 1.0
-    var priority: Float = 999.0
+    var priority: UILayoutPriority = UILayoutPriorityRequired
 
     required init(view: UIView, attribute: NSLayoutAttribute) {
         self.view = view
@@ -82,9 +82,13 @@ extension LayoutBase: LayoutConstrainable {
         self.constant = constant
         
         guard let to: LayoutBasic = self.to else {
-            return NSLayoutConstraint(item: self.view, attribute: self.attribute, relatedBy: self.relatition, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: self.multiplier, constant: self.constant)
+            let result: NSLayoutConstraint = NSLayoutConstraint(item: self.view, attribute: self.attribute, relatedBy: self.relatition, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: self.multiplier, constant: self.constant)
+            result.priority = self.priority
+            return result
         }
-        return NSLayoutConstraint(item: self.view, attribute: self.attribute, relatedBy: self.relatition, toItem: to.view, attribute: to.attribute, multiplier: self.multiplier, constant: self.constant)
+        let result: NSLayoutConstraint = NSLayoutConstraint(item: self.view, attribute: self.attribute, relatedBy: self.relatition, toItem: to.view, attribute: to.attribute, multiplier: self.multiplier, constant: self.constant)
+        result.priority = self.priority
+        return result
     }
 
     public func multiplier(_ multiplier: CGFloat) -> LayoutConstrainable {
@@ -92,7 +96,7 @@ extension LayoutBase: LayoutConstrainable {
         return self
     }
 
-    public func priority(_ priority: Float) -> LayoutConstrainable {
+    public func priority(_ priority: UILayoutPriority) -> LayoutConstrainable {
         self.priority = priority
         return self
     }
