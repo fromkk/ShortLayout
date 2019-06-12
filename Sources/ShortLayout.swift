@@ -46,11 +46,11 @@ class LayoutBase: LayoutBasic {
 extension LayoutBase {
     var layoutConstraint: NSLayoutConstraint {
         if let base: LayoutBase = self.to as? LayoutBase {
-            let result: NSLayoutConstraint = NSLayoutConstraint(item: self.view, attribute: self.attribute, relatedBy: self.relatition, toItem: base.view, attribute: base.attribute, multiplier: self.multiplier, constant: self.constant)
+            let result: NSLayoutConstraint = NSLayoutConstraint(item: view, attribute: self.attribute, relatedBy: self.relatition, toItem: base.view, attribute: base.attribute, multiplier: self.multiplier, constant: self.constant)
             result.priority = UILayoutPriority(self.priority.rawValue)
             return result
         } else {
-            let result: NSLayoutConstraint = NSLayoutConstraint(item: self.view, attribute: self.attribute, relatedBy: self.relatition, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: self.multiplier, constant: self.constant)
+            let result: NSLayoutConstraint = NSLayoutConstraint(item: view, attribute: self.attribute, relatedBy: self.relatition, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: self.multiplier, constant: self.constant)
             result.priority = UILayoutPriority(self.priority.rawValue)
             return result
         }
@@ -87,11 +87,11 @@ extension LayoutBase: LayoutConstrainable {
         self.constant = constant
         
         guard let to: LayoutBasic = self.to else {
-            let result: NSLayoutConstraint = NSLayoutConstraint(item: self.view, attribute: self.attribute, relatedBy: self.relatition, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: self.multiplier, constant: self.constant)
+            let result: NSLayoutConstraint = NSLayoutConstraint(item: view, attribute: self.attribute, relatedBy: self.relatition, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: self.multiplier, constant: self.constant)
             result.priority = self.priority
             return result
         }
-        let result: NSLayoutConstraint = NSLayoutConstraint(item: self.view, attribute: self.attribute, relatedBy: self.relatition, toItem: to.view, attribute: to.attribute, multiplier: self.multiplier, constant: self.constant)
+        let result: NSLayoutConstraint = NSLayoutConstraint(item: view, attribute: self.attribute, relatedBy: self.relatition, toItem: to.view, attribute: to.attribute, multiplier: self.multiplier, constant: self.constant)
         result.priority = self.priority
         return result
     }
@@ -123,44 +123,44 @@ extension ShortLayout {
 }
 
 extension ShortLayout {
-    public var left: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.left) }
-    public var right: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.right) }
-    public var top: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.top) }
-    public var bottom: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.bottom) }
-    public var leading: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.leading) }
-    public var trailing: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.trailing) }
-    public var width: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.width) }
-    public var height: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.height) }
-    public var centerX: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.centerX) }
-    public var centerY: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.centerY) }
-    public var lastBaseline: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.lastBaseline) }
+    public var left: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.left) }
+    public var right: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.right) }
+    public var top: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.top) }
+    public var bottom: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.bottom) }
+    public var leading: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.leading) }
+    public var trailing: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.trailing) }
+    public var width: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.width) }
+    public var height: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.height) }
+    public var centerX: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.centerX) }
+    public var centerY: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.centerY) }
+    public var lastBaseline: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.lastBaseline) }
 
     @available(iOS 8.0, *)
-    public var firstBaseline: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.firstBaseline) }
+    public var firstBaseline: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.firstBaseline) }
 
     @available(iOS 8.0, *)
-    public var leftMargin: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.leftMargin) }
+    public var leftMargin: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.leftMargin) }
 
     @available(iOS 8.0, *)
-    public var rightMargin: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.rightMargin) }
+    public var rightMargin: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.rightMargin) }
 
     @available(iOS 8.0, *)
-    public var topMargin: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.topMargin) }
+    public var topMargin: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.topMargin) }
 
     @available(iOS 8.0, *)
-    public var bottomMargin: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.bottomMargin) }
+    public var bottomMargin: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.bottomMargin) }
 
     @available(iOS 8.0, *)
-    public var leadingMargin: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.leadingMargin) }
+    public var leadingMargin: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.leadingMargin) }
 
     @available(iOS 8.0, *)
-    public var trailingMargin: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.trailingMargin) }
+    public var trailingMargin: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.trailingMargin) }
 
     @available(iOS 8.0, *)
-    public var centerXWithinMargins: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.centerXWithinMargins) }
+    public var centerXWithinMargins: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.centerXWithinMargins) }
 
     @available(iOS 8.0, *)
-    public var centerYWithinMargins: LayoutBasic { return LayoutBase(view: self.view, attribute: NSLayoutConstraint.Attribute.centerYWithinMargins) }
+    public var centerYWithinMargins: LayoutBasic { return LayoutBase(view: view, attribute: NSLayoutConstraint.Attribute.centerYWithinMargins) }
 }
 
 extension UIView {
