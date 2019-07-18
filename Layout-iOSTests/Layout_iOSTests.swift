@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Layout_iOS
+@testable import ShortLayout
 
 class Layout_iOSTests: XCTestCase {
     
