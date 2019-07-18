@@ -1,3 +1,5 @@
+[![Build Status](https://app.bitrise.io/app/083c8b8fb1cf6295/status.svg?token=bmjgt-S2Z5kn1OqbqObxHQ&branch=master)](https://app.bitrise.io/app/083c8b8fb1cf6295)
+
 # Short Layout with Swift
 
 Short Layout is library of AutoLayout with syntax sugar.
